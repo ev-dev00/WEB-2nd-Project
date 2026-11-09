@@ -1,0 +1,9 @@
+:root {
+  --accent: #1d6f9b;
+  --border: #d3e0ea;
+  --muted: #5b7a94;
+  --page-color: #eef6fb;
+  --error-color: #ff3535;
+  --success-color: #3ad132;
+  --warning-color: #f6b948;
+}

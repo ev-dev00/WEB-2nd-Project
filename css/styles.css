@@ -1,0 +1,233 @@
+body {
+  background-color: var(--page-color);
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.card-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin: 20px auto;
+}
+
+.card-wrapper > * {
+  flex: 1 1 min(520px, 100%);
+  max-width: 720px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.column .card {
+  flex: 1;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: clamp(20px, 4vw, 40px);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background-color: #f8fcffa5;
+  box-shadow: 0 4px 16px rgba(20, 56, 86, 0.078);
+}
+
+.input-labels {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.radio {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem 1rem;
+}
+
+.checkbox-grid label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+textarea {
+  resize: none;
+  border: 1px solid rgba(179, 181, 185, 0.371);
+  border-radius: 8px;
+}
+
+input:not([type="range"]) {
+  padding: 10px;
+  border: 1px solid rgba(179, 181, 185, 0.522);
+  border-radius: 8px;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  accent-color: var(--accent);
+}
+
+input[type="file"]::file-selector-button {
+  margin-right: 10px;
+  padding: 6px 12px;
+  font: inherit;
+  color: #fff;
+  background: var(--accent);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+select,
+textarea {
+  padding: 10px;
+  background: #ebf0f42f;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+input:not([type="range"]):focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px rgba(29, 113, 155, 0.387);
+}
+
+input:required:not([type="range"]):user-valid {
+  border-color: var(--success-color);
+}
+
+input:required:not([type="range"]):user-invalid {
+  border-color: var(--error-color);
+}
+
+.req-symbol {
+  color: var(--error-color);
+}
+
+
+button[type="submit"] {
+  display: block;
+  width: 100%;
+  max-width: 1460px;
+  margin: 0 auto 40px;
+  padding: 18px 32px;
+  color: #fff;
+  font-weight: 500;
+  background: var(--accent);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button[type="submit"]:hover {
+  background: #20374a;
+}
+
+/* This is for Fun */
+
+#meme {
+  --glow: #e41313;
+  --track: 18px;
+  --label-color: #1a1d22;
+
+  /* hilt drawn with stacked gradients, top layer first */
+  --hilt:
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0) 45%,
+      rgba(0, 0, 0, 0.45)
+    ),
+    /* metallic sheen */
+    radial-gradient(circle at 80% 50%, #ff4d4d 0 2px, transparent 3px),
+    /* red button */ linear-gradient(to right, #d8dce2, #8b919a) 0 0 / 12px 100%
+      no-repeat,
+    /* emitter collar */
+    repeating-linear-gradient(to right, #3d4149 0 3px, #1a1d22 3px 6px) 15px 0 /
+      34px 100% no-repeat,
+    /* grip rings */ #24272c; /* body */
+
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: var(--track);
+  background: transparent;
+  cursor: grab;
+  filter: drop-shadow(0 0 4px var(--glow)) drop-shadow(0 0 14px var(--glow));
+  transition: filter 0.2s;
+}
+
+#meme:active {
+  cursor: grabbing;
+}
+#meme:focus {
+  outline: none;
+}
+#meme:focus-visible {
+  filter: drop-shadow(0 0 6px var(--glow)) drop-shadow(0 0 22px var(--glow));
+}
+
+/* ---------- Chrome / Edge / Safari ---------- */
+#meme::-webkit-slider-runnable-track {
+  height: var(--track);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.08); /* dim unlit rail */
+  overflow: hidden;
+}
+
+#meme::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 64px;
+  height: var(--track);
+  border-radius: 2px 6px 6px 2px;
+  background: var(--hilt);
+  box-shadow: -100vmax 0 0 100vmax var(--glow); /* the blade */
+}
+
+/* ---------- Firefox ---------- */
+#meme::-moz-range-track {
+  height: var(--track);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+#meme::-moz-range-progress {
+  /* the blade */
+  height: var(--track);
+  border-radius: 6px;
+  background: var(--glow);
+}
+
+#meme::-moz-range-thumb {
+  width: 64px;
+  height: var(--track);
+  box-sizing: border-box;
+  border: none;
+  border-radius: 2px 6px 6px 2px;
+  background: var(--hilt);
+}
